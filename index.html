@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strike - Deploy Your Skills</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Strike</title>
+    <link rel="stylesheet" href="style.css"> 
+    
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -13,7 +14,7 @@
     <header class="main-header">
         <div class="container nav-container">
             <a href="#" class="logo">
-                <img src="strike.png" alt="Strike Logo">
+                <img src="logo.png" alt="Strike Logo">
                 <span>Strike</span>
             </a>
             
@@ -26,10 +27,10 @@
 
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#courses">Training</a></li>
+                    <li><a href="#courses">Learning</a></li>
                     <li><a href="#instructors">Instructors</a></li> 
-                    <li><a href="#get-in-touch">Contact</a></li>
-                    <li><a href="#courses" class="btn btn-primary">Enroll Now - FREE</a></li>
+                    <li><a href="#get-in-touch">Contact Us</a></li>
+                    <li><a href="#courses" class="btn btn-primary">Enroll Now</a></li>
                 </ul>
             </nav>
         </div>
@@ -39,68 +40,92 @@
         <section class="hero-section">
             <div class="container hero-content">
                 <h1 class="glitch-text">
-                    <span aria-hidden="true">Deploy Your Skills.</span>
-                    Deploy Your Skills.
-                    <span aria-hidden="true">Deploy Your Skills.</span>
+                    <span aria-hidden="true">Be a part of our STRIKE Army</span>
+                    Be a part of our STRIKE Army
+                    <span aria-hidden="true">Be a part of our STRIKE Army</span>
                 </h1>
-                <p>Join the elite force of developers. Tactical training for real-world code deployment.</p>
-                <a href="#courses" class="btn btn-cta pulse-effect">Start Your FREE Training</a>
+                <p>Discover our comprehensive learning programs designed by industry experts to advance your career and technical skills.</p>
+                
+                <div class="card-row">
+                    <div class="promo-card">
+                        <h2 class="promo-title">💥 Diwali Strike Offer 💥</h2>
+                        <p class="promo-date">Offer Starts: October 18th, 2025</p>
+                        <p class="promo-cta">For more updates, stay tuned and click the link below to subscribe to the channel.</p>
+                        <a href="https://www.youtube.com/@CoderArmy9" class="btn btn-secondary btn-promo">Subscribe Now</a>
+                    </div>
+
+                    <div class="coding-promo-card">
+                        <div class="code-header">
+                            <div class="traffic-lights">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="file-name">
+                                StrikeArmy.cpp
+                            </div>
+                            <div class="status-light">
+                                <span class="live-status">Live Coding</span>
+                            </div>
+                        </div>
+                        
+                        <pre class="code-content">
+<span class="line-number">03</span> <span class="keyword">#include</span> <span class="type">&lt;iostream&gt;</span>
+<span class="line-number">04</span> <span class="keyword">#include</span> <span class="type">&lt;algorithm&gt;</span>
+<span class="line-number">05</span> <span class="keyword">#include</span> <span class="type">&lt;string&gt;</span>
+<span class="line-number">06</span> <span class="keyword">#include</span> <span class="type">&lt;queue&gt;</span>
+<span class="line-number">07</span> <span class="keyword">#include</span> <span class="type">&lt;stack&gt;</span>
+<span class="line-number">08</span> 
+<span class="line-number">09</span> <span class="keyword">using namespace</span> std;
+<span class="line-number">10</span> 
+<span class="line-number">11</span> <span class="keyword">class</span> <span class="class-name">Strike Army</span> 
+<span class="line-number">12</span> <span class="private">private</span>:
+<span class="line-number">13</span>     <span class="type">vector</span>&lt;<span class="type">string</span>&gt; <span class="variable">members</span>;
+<span class="line-number">14</span>     <span class="type">unique_ptr</span>&lt;<span class="type">int</span>&gt; <span class="variable">projectCount</span>;
+<span class="line-number">15</span>     <span class="type">bool</span> <span class="variable">isActive</span>;
+<span class="line-number">16</span>     <span class="const">const string</span> <span class="variable">motto</span> = <span class="string">"Build.</span>
+<span class="line-number">17</span>     <span class="string-continuation">Deploy. Conquer."</span><span class="blinking-cursor">|</span>
+                        </pre>
+                    </div>
+                </div>
+                <a href="#courses" class="btn btn-cta pulse-effect">Start Your Learning</a>
             </div>
         </section>
 
         <section id="courses" class="course-section">
             <div class="container">
-                <h2 class="section-title">Field Training Missions</h2>
+                <h2 class="section-title">Our Premium Courses</h2>
                 
                 <div class="course-grid">
                     
                     <a href="https://www.youtube.com/watch?v=y3OOaXrFy-Q&list=PLQEaRBV9gAFu4ovJ41PywklqI7IyXwr01" target="_blank" class="course-card tilt-effect">
-                        
-                        <img src="DSA.png" alt="DSA Course Image" class="course-thumbnail">
-                        
+                        <img src="dsa2.png" alt="DSA Course Image" class="course-thumbnail">
                         <div class="card-icon"><i class="fas fa-cubes"></i></div>
                         <h3>DSA Mastery in C++</h3>
-                        <p>Master Data Structures and Algorithms using C++. Essential training for combat-ready coding interviews.</p>
-                        <span class="level cadet">Cadet</span>
-                        <div class="card-footer">
-                            <span class="price">FREE</span>
-                        </div>
-                    </a>
-
-                    <a href="https://www.youtube.com/watch?v=WOyZid8OkkI&list=PLd7PleJR_EFfRYiLdagOsv4FczMl1Cxt_" target="_blank" class="course-card tilt-effect">
-                        
-                        <img src="GEnAi.png" alt="Generative AI Course Image" class="course-thumbnail">
-                        
-                        <div class="card-icon"><i class="fas fa-brain"></i></div>
-                        <h3>Generative AI Course</h3>
-                        <p>Learn the principles and deployment of LLMs and generative models for advanced application development.</p>
-                        <span class="level field-agent">Field Agent</span>
+                        <p>The Ultimate Guide to Mastering Data and Structures & Algorithms in C++.</p>
+                        <span class="click">Click me</span>
                         <div class="card-footer">
                             <span class="price">FREE</span>
                         </div>
                     </a>
                     
                     <a href="https://www.youtube.com/watch?v=1pcikNlDB-4&list=PLQEaRBV9gAFsistSzOgnD4cWgFGRVda4X" target="_blank" class="course-card tilt-effect">
-                        
                         <img src="webdev.png" alt="Full Stack Course Image" class="course-thumbnail">
-                        
                         <div class="card-icon"><i class="fas fa-code-branch"></i></div>
                         <h3>Full Stack Web Dev</h3>
                         <p>Build and deploy robust web applications from frontend interfaces to secure backend services.</p>
-                        <span class="level commander">Commander</span>
+                        <span class="click">Click me</span>
                         <div class="card-footer">
                             <span class="price">FREE</span>
                         </div>
                     </a>
 
                     <a href="https://www.youtube.com/watch?v=AK0hu0Zxua4&list=PLQEaRBV9gAFvzp6XhcNFpk1WdOcyVo9qT" target="_blank" class="course-card tilt-effect">
-                        
-                        <img src="systemdesign.png" alt="System Design Course Image" class="course-thumbnail">
-                        
+                        <img src="sd.png" alt="System Design Course Image" class="course-thumbnail">
                         <div class="card-icon"><i class="fas fa-network-wired"></i></div>
-                        <h3>Advanced System Design</h3>
-                        <p>Architect scalable, reliable, and fault-tolerant large-scale systems for the real-world battlefield.</p>
-                        <span class="level tactician">Tactician</span>
+                        <h3>System Design Course</h3>
+                        <p>Learn Low-Level Design and System Design concepts from scratch to advanced.</p>
+                        <span class="click">Click me</span>
                         <div class="card-footer">
                             <span class="price">FREE</span>
                         </div>
@@ -112,7 +137,7 @@
         
         <section id="instructors" class="instructors-section">
             <div class="container instructors-content">
-                <h2 class="section-title">Meet Your Command Staff</h2>
+                <h2 class="section-title">Meet Your Instructor</h2>
                 
                 <div class="instructor-grid">
                     
@@ -124,15 +149,15 @@
                             <h3>Rohit Negi</h3>
                             <p class="instructor-title">Founder, Instructor & Visionary Leader</p>
                             <div class="instructor-tags">
-                                <span>$2Cr+ Package</span>
                                 <span>IIT Graduate</span>
                                 <span>Industry Expert</span>
                                 <span>Ex-Uber</span>
                                 <span>GATE 2022 Highest</span>
                             </div>
-                            <p>A heartfelt programmer and industry expert. Rohit is a problem solver and dedicated mentor, guiding **Strike's** mission to achieve the highest placement success. His expertise is rooted in visionary leadership.</p>
+                            <p>A heartfelt programmer and industry expert. Rohit is a problem solver and dedicated mentor, guiding Strike's mission to achieve the highest placement success. His expertise is rooted in visionary leadership.</p>
                             <div class="instructor-actions">
                                 <a href="#courses" class="btn btn-primary">View His Courses</a>
+                                <a href="https://www.linkedin.com/in/rohit-negi9/" class="btn btn-secondary">Know More</a>
                             </div>
                         </div>
                     </div>
@@ -153,6 +178,7 @@
                             <p>A senior software engineer and instructor passionate about building scalable systems and elegant algorithms. Aditya is a dedicated mentor committed to teaching, learning, and inspiring future developers.</p>
                             <div class="instructor-actions">
                                 <a href="#courses" class="btn btn-primary">View His Courses</a>
+                                <a href="https://www.linkedin.com/in/adityatandon2/" class="btn btn-secondary">Know More</a>
                             </div>
                         </div>
                     </div>
@@ -160,27 +186,30 @@
             </div>
         </section>
         
+        <section id="mission-statement" class="mission-statement-section">
+            <div class="container">
+                <h2 class="huge-text">STRIKE</h2>
+            </div>
+        </section>
         <section id="get-in-touch" class="contact-section">
-    <div class="container contact-content">
-        <h2 class="section-title">Get In Touch</h2>
-        <form action="#" method="POST" class="contact-form">
-            
-            <input type="text" name="full_name" placeholder="Full Name" required> 
-            
-            <input type="email" name="email" placeholder="Encrypted Email" required>
-            
-            <input type="tel" name="phone" placeholder="Phone Number (Optional)" >
-            
-            <input type="text" name="subject" placeholder="Mission Subject" required>
-            
-            <textarea name="message" rows="5" placeholder="Mission Briefing/Query" required></textarea>
-            
-            <button type="submit" class="btn btn-submit">Send           
-                            
-             Message</button>
-        </form>
-    </div>
-</section>
+            <div class="container contact-content">
+                <h2 class="section-title">Get In Touch</h2>
+                <form action="#" method="POST" class="contact-form">
+                    
+                    <input type="text" name="full_name" placeholder="Full Name" required> 
+                    
+                    <input type="email" name="email" placeholder="Encrypted Email" required>
+                    
+                    <input type="tel" name="phone" placeholder="Phone Number (Optional)" >
+                    
+                    <input type="text" name="subject" placeholder="Subject" required>
+                    
+                    <textarea name="message" rows="5" placeholder="Message" required></textarea>
+                    
+                    <button type="submit" class="btn btn-submit">Send Message</button>
+                </form>
+            </div>
+        </section>
     </main>
 
     <footer class="main-footer">
@@ -188,7 +217,7 @@
             
             <div class="footer-col footer-about">
                 <h3 class="logo">
-                    <img src="strike.png" alt="Strike Logo" style="height: 24px;">
+                    <img src="logo.png" alt="Strike Logo" style="height: 24px;">
                     <span>Strike</span>
                 </h3>
                 <p>A community of coders, making the world a better place through technology and education.</p>
@@ -216,10 +245,10 @@
                 <h4>Stay Connected</h4>
                 <p>Don't let your dreams stay dreams. Build your skills with us and turn them into reality.</p>
                 <div class="social-links">
-                    <a href="https://x.com/rohit_negi9?t=YgrvTdxYkv2vzfhLG-J6JQ&s=09" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Github"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/rohit-negi9/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                </div>
+    <a href="https://x.com/shashi_bk_23?t=bZ32YDyKWFxRnG_ChXAR3A&s=09" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://github.com/kumarshashibhushan" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/shashi-bhushan-kumar-55b6a7248/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+</div>
             </div>
 
         </div>

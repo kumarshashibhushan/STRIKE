@@ -2,11 +2,16 @@
     
     --clr-dark: #121827;        
     --clr-surface: #1e283b;     
+
+    --clr-primary: #D16DFF;     
+    --clr-secondary: #FFD700;   
     
     
-    --clr-primary: #00FFFF;     
-    --clr-secondary: #FF9900;   
-    
+    --clr-saffron: #FF9933;     
+    --clr-navy-blue: #000080;   
+    --clr-green: #138808;       
+    --clr-white: #FFFFFF;       
+
 
     --clr-text: #e0e6f8;        
     --clr-link: var(--clr-primary); 
@@ -83,11 +88,22 @@ h1, h2, h3 {
 }
 
 .btn-primary:hover {
-    
-    background-color: #00E0E0; 
+    background-color: #B23AE8; 
     transform: translateY(-2px);
-    
-    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(209, 109, 255, 0.6);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--clr-secondary);
+    border-color: var(--clr-secondary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--clr-secondary);
+    color: var(--clr-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6); 
 }
 
 
@@ -120,6 +136,45 @@ h1, h2, h3 {
 }
 
 
+/* LOGO ANIMATIONS */
+
+
+@keyframes logo-float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes neon-flicker {
+    0%, 100% {
+        text-shadow: 
+            /* 1. CRISP WHITE/BRIGHT LAYER (Sharpen the edges) */
+            0 0 4px #FFFFFF, 
+            /* 2. BRIGHT CORE PURPLE */
+            0 0 12px var(--clr-primary), 
+            0 0 25px var(--clr-primary),
+            /* 3. WIDE, SOFT PURPLE BASE GLOW */
+            0 0 50px rgba(209, 109, 255, 0.8), 
+            /* 4. YELLOW FLICKER */
+            0 0 15px var(--clr-secondary); 
+        color: var(--clr-primary); 
+    }
+    50% {
+        text-shadow: 
+            /* 1. CRISP WHITE/BRIGHT LAYER (Sharpen the edges) */
+            0 0 3px #FFFFFF,
+            /* 2. BRIGHT CORE PURPLE (Slightly dimmed) */
+            0 0 8px var(--clr-primary),
+            0 0 18px var(--clr-primary),
+            /* 3. WIDE, SOFT PURPLE BASE GLOW */
+            0 0 30px rgba(209, 109, 255, 0.5), 
+            /* 4. STRONGER YELLOW PULSE */
+            0 0 25px var(--clr-secondary); 
+        color: var(--clr-primary); 
+    }
+}
+
+
 .logo {
     display: flex; 
     align-items: center;
@@ -127,19 +182,42 @@ h1, h2, h3 {
     padding: 0;
     font-family: var(--font-heading);
     font-weight: 700;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.03); 
 }
 
 .logo img {
     height: 36px; 
     vertical-align: middle;
-    transition: transform 0.3s ease;
+    animation: logo-float 4s ease-in-out infinite; 
+    
+    filter: drop-shadow(0 0 5px var(--clr-primary)) drop-shadow(0 0 10px rgba(209, 109, 255, 0.3));
+    transition: filter 0.3s ease; 
+}
+
+.logo:hover img {
+    filter: drop-shadow(0 0 10px var(--clr-primary)) drop-shadow(0 0 20px var(--clr-secondary));
 }
 
 .logo span {
     font-size: 1.8rem; 
     color: var(--clr-primary); 
     line-height: 1;
-    transition: color 0.3s ease;
+    
+    animation: neon-flicker 1.5s infinite alternate; 
+    transition: text-shadow 0.3s ease, color 0.3s ease; 
+}
+
+.logo:hover span {
+    color: var(--clr-secondary); 
+    text-shadow: 
+        0 0 10px var(--clr-secondary), 
+        0 0 20px var(--clr-secondary),
+        0 0 35px rgba(255, 215, 0, 0.8); 
+    animation: none; 
 }
 
 
@@ -157,8 +235,8 @@ h1, h2, h3 {
 }
 
 .main-nav a:hover {
-    color: var(--clr-primary);
-    border-bottom: 2px solid var(--clr-primary);
+    color: var(--clr-secondary); 
+    border-bottom: 2px solid var(--clr-secondary); 
 }
 
 
@@ -193,10 +271,9 @@ h1, h2, h3 {
     align-items: center;
     text-align: center;
     
-    
     background-image: 
         linear-gradient(rgba(18, 24, 39, 0.85), rgba(18, 24, 39, 0.95)), 
-        url('coderarmy.png'); 
+        url('strike_animated_bg.gif'); 
     
     background-size: cover;
     background-position: center;
@@ -229,14 +306,13 @@ h1, h2, h3 {
 .glitch-text span:first-child {
     clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
     transform: translate(-0.02em, -0.01em);
-    text-shadow: 0.02em 0 0 var(--clr-text);
+    text-shadow: 0.02em 0 0 var(--clr-secondary); 
     animation: glitch-anim-1 2s infinite alternate-reverse;
 }
 
 .glitch-text span:last-child {
     clip-path: polygon(0 66%, 100% 66%, 100% 100%, 0 100%);
     transform: translate(0.01em, 0.02em);
-    
     text-shadow: -0.02em 0 0 var(--clr-secondary); 
     animation: glitch-anim-2 2s infinite alternate;
 }
@@ -267,8 +343,8 @@ h1, h2, h3 {
 }
 
 .btn-cta {
-    border: 2px solid var(--clr-primary);
-    background-color: var(--clr-primary);
+    border: 2px solid var(--clr-secondary); 
+    background-color: var(--clr-secondary); 
     color: var(--clr-dark);
     position: relative;
     overflow: hidden;
@@ -277,9 +353,9 @@ h1, h2, h3 {
 
 .pulse-effect:hover {
     background-color: transparent;
-    color: var(--clr-primary);
+    color: var(--clr-secondary); 
     
-    box-shadow: 0 0 20px var(--clr-primary); 
+    box-shadow: 0 0 20px var(--clr-secondary); 
     transform: scale(1.05);
 }
 
@@ -291,7 +367,7 @@ h1, h2, h3 {
     width: 0;
     height: 0;
     
-    background: rgba(0, 255, 255, 0.15); 
+    background: rgba(255, 215, 0, 0.2); 
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: width 0.4s ease, height 0.4s ease;
@@ -304,17 +380,253 @@ h1, h2, h3 {
 }
 
 
+
+/* NEW: CARD ROW FLEX CONTAINER */
+
+
+.card-row {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin: var(--spacing-lg) auto; 
+    width: 100%;
+    max-width: 1100px; 
+}
+
+
+
+/* MERGED PROMO CARD STYLES (Diwali & Code Editor) */
+
+
+/* --- Base Card Shared Styles --- */
+.promo-card,
+.coding-promo-card {
+    /* Set fixed width/flex properties for side-by-side layout */
+    flex: 1 1 48%; 
+    max-width: 550px; 
+    margin: 0; 
+    
+    border-radius: 8px; 
+    padding: var(--spacing-md);
+    position: relative;
+    overflow: hidden;
+    text-align: center; 
+}
+
+
+/* 1. Diwali Promo Card (.promo-card) Styles */
+.promo-card {
+    background-color: var(--clr-surface);
+    
+    /* Indian Flag Theming */
+    background-image: 
+        linear-gradient(rgba(30, 40, 59, 0.8), rgba(30, 40, 59, 0.9)), 
+        url('strike2.png'); 
+    background-size: cover;
+    background-position: center;
+    
+    /* Saffron (Top), White (Middle), Green (Bottom) Border */
+    border: 3px solid transparent; 
+    border-image: linear-gradient(to right, 
+        var(--clr-saffron) 0%, 
+        var(--clr-white) 50%, 
+        var(--clr-green) 100%);
+    border-image-slice: 1;
+    
+    box-shadow: 0 0 20px rgba(255, 153, 51, 0.4); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    animation: glow-border 4s infinite alternate, 
+               cracker-sparkle 1s infinite linear; 
+}
+
+/* Diwali Card Specific Content Styles */
+.promo-card .promo-title {
+    color: var(--clr-saffron);
+}
+.promo-card .promo-cta {
+    color: var(--clr-text);
+}
+
+
+/*  2. Code Editor Card (.coding-promo-card) Styles  */
+.coding-promo-card {
+    background-color: #1a1a1a; 
+    border: 2px solid var(--clr-primary);
+    border-radius: 12px; 
+    padding: 0; 
+    
+    /* Purple Neon Glow Pulse */
+    box-shadow: 0 0 10px rgba(209, 109, 255, 0.5);
+    animation: neon-border-pulse 3s infinite alternate;
+}
+
+/* Code Card Header */
+.code-header {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: #181818; 
+    border-bottom: 1px solid #333;
+}
+.traffic-lights { display: flex; gap: 8px; }
+.dot { display: block; width: 12px; height: 12px; border-radius: 50%; opacity: 0.8; }
+.dot.red { background-color: #ff5f56; }
+.dot.yellow { 
+    background-color: var(--clr-secondary); 
+    box-shadow: 0 0 8px var(--clr-secondary), 0 0 15px rgba(255, 215, 0, 0.5); 
+} 
+.dot.green { background-color: #27c93f; }
+.file-name { flex-grow: 1; text-align: center; font-size: 0.9rem; color: #999; }
+.status-light { font-size: 0.8rem; color: var(--clr-green); }
+.status-light .live-status::before { 
+    content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+    background-color: var(--clr-green); margin-right: 5px; box-shadow: 0 0 5px var(--clr-green);
+    animation: live-pulse 1.5s infinite alternate;
+}
+
+/* Code Content (Pre tag) */
+.code-content {
+    font-family: var(--font-heading); font-size: 0.95rem; text-align: left;
+    white-space: pre-wrap; margin: 0; padding: 1rem; line-height: 1.4;
+    background-color: #1a1a1a;
+}
+
+/* Syntax Highlighting */
+.line-number { width: 25px; text-align: right; margin-right: 15px; color: #666; user-select: none;}
+.keyword, .private, .const { color: var(--clr-primary); font-weight: 600; }
+.type { color: #00FFFF; /* Cyan */ }
+.string, .string-continuation { color: var(--clr-saffron); }
+.class-name { 
+    color: var(--clr-secondary); 
+    font-weight: 700; 
+    text-shadow: 0 0 5px var(--clr-secondary); 
+}
+.variable { color: var(--clr-text); }
+.blinking-cursor {
+    color: var(--clr-secondary); font-weight: 700; font-size: 1.1em;
+    text-shadow: 0 0 10px var(--clr-secondary), 0 0 20px rgba(255, 215, 0, 0.7); 
+    animation: blink-cursor 0.7s infinite step-end;
+    display: inline-block;
+}
+
+/*  Shared Animations (Defined once)  */
+@keyframes neon-border-pulse { 
+    0% { box-shadow: 0 0 8px var(--clr-primary); } 
+    100% { box-shadow: 0 0 18px var(--clr-primary), 0 0 30px var(--clr-secondary); } 
+}
+
+@keyframes glow-border { 
+    0% { box-shadow: 0 0 10px rgba(255, 153, 51, 0.4); }
+    100% { box-shadow: 0 0 25px var(--clr-saffron), 0 0 40px var(--clr-navy-blue); }
+}
+
+@keyframes cracker-sparkle { 
+    0% { box-shadow: 0 0 5px var(--clr-saffron), 0 0 10px var(--clr-green), 30px 10px 15px rgba(255, 153, 0, 0.5); }
+    50% { box-shadow: 0 0 8px var(--clr-saffron), 0 0 8px var(--clr-green), -20px -25px 10px rgba(255, 255, 255, 0.5); }
+    100% { box-shadow: 0 0 5px var(--clr-saffron), 0 0 10px var(--clr-green), 60px 20px 20px rgba(255, 153, 0, 0.1); }
+}
+
+@keyframes live-pulse { 
+    0% { opacity: 0.5; box-shadow: 0 0 5px var(--clr-green); }
+    100% { opacity: 1; box-shadow: 0 0 10px var(--clr-green); }
+}
+
+@keyframes blink-cursor { 
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+
+
+/* 3.6. STRIKE Animated Text Section (Indian Flag Colors) - CENTERED */
+.mission-statement-section {
+    
+    min-height: 40vh; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    
+    padding: var(--spacing-lg) 0;
+    background-color: var(--clr-surface);
+    border-top: 2px solid var(--clr-saffron);
+    border-bottom: 2px solid var(--clr-green);
+}
+
+.mission-statement-section .container {
+    
+    width: 100%;
+    margin: 0;
+}
+
+.mission-statement-section .huge-text {
+    font-size: clamp(4rem, 15vw, 10rem); 
+    color: var(--clr-dark); 
+    
+    text-transform: uppercase;
+    font-weight: 900;
+    
+    position: relative;
+    display: inline-block;
+    
+    letter-spacing: 0.1em;
+    padding-left: 1.60em;
+    
+    background: linear-gradient(90deg, var(--clr-saffron), var(--clr-white), var(--clr-green), var(--clr-saffron));
+    background-size: 400% 100%; 
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    text-shadow: 
+        0 0 10px rgba(0, 0, 128, 0.5), 
+        0 0 20px rgba(255, 153, 51, 0.5); 
+    
+    animation: neon-pulse-flag 2s infinite alternate, text-scan 4s infinite linear;
+}
+
+@keyframes neon-pulse-flag {
+    0% {
+        text-shadow: 
+            0 0 5px rgba(0, 0, 128, 0.2),
+            0 0 10px rgba(0, 0, 128, 0.2);
+        opacity: 0.8;
+    }
+    100% {
+        text-shadow: 
+            0 0 15px var(--clr-saffron),
+            0 0 25px var(--clr-green),
+            0 0 40px var(--clr-navy-blue);
+        opacity: 1;
+    }
+}
+
+@keyframes text-scan {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 300% center; 
+    }
+}
+
+
 /* 4. Course Cards Section */
 
 .course-section {
     padding: var(--spacing-lg) 0;
     background-color: var(--clr-dark);
+    position: relative; 
+    z-index: 10; 
 }
 
 .course-grid {
     display: grid;
     gap: var(--spacing-md);
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(3, 1fr); 
     perspective: 1000px;
 }
 
@@ -335,44 +647,48 @@ h1, h2, h3 {
 .course-card:hover {
     transform: rotateX(5deg) rotateY(-5deg) scale(1.02);
     
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 25px var(--clr-primary); 
-    border-color: var(--clr-primary);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 25px var(--clr-secondary); 
+    border-color: var(--clr-secondary); 
 }
 
 
 .course-thumbnail {
     
-    width: calc(100% + 4rem); 
+    width: calc(100% + 8rem); 
     margin: -2rem -2rem 1rem -2rem; 
     
-    height: 200px; 
+    height: 350px; 
+    
     object-fit: cover; 
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     opacity: 1; 
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    filter: brightness(0.9) grayscale(10%);
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 .course-card:hover .course-thumbnail {
     opacity: 1;
     transform: scale(1.02); 
+    filter: brightness(1) grayscale(0); 
 }
 
 .card-icon {
     font-size: 2.5rem;
-    color: var(--clr-secondary);
+    color: var(--clr-primary);
     margin-bottom: var(--spacing-sm);
     transition: color 0.3s ease;
     margin-top: 0; 
 }
 
 .course-card:hover .card-icon {
-    color: var(--clr-primary);
+    color: var(--clr-secondary); 
 }
 
 .course-card h3 {
     font-size: 1.4rem;
     margin-bottom: var(--spacing-xs);
+    color: var(--clr-text); 
 }
 
 .course-card p {
@@ -381,7 +697,7 @@ h1, h2, h3 {
     margin-bottom: var(--spacing-sm);
 }
 
-.course-card span {
+.course-card span.click {
     display: inline-block;
     padding: 0.25rem 0.75rem;
     border-radius: 2px;
@@ -390,13 +706,23 @@ h1, h2, h3 {
     margin: 0.2rem;
     font-family: var(--font-heading);
     letter-spacing: 1px;
+    
+    background-color: var(--clr-secondary); 
+    color: var(--clr-dark);
+    
+    animation: neon-pulse-small 2s infinite alternate; 
+    cursor: pointer;
 }
 
+@keyframes neon-pulse-small {
+    0% {
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.6); 
+    }
+    100% {
+        box-shadow: 0 0 15px var(--clr-secondary), 0 0 25px rgba(255, 215, 0, 0.9); 
+    }
+}
 
-.level.cadet { background-color: #5cb85c; color: var(--clr-dark); }
-.level.tactician { background-color: #f0ad4e; color: var(--clr-dark); }
-.level.field-agent { background-color: var(--clr-secondary); color: var(--clr-dark); } 
-.level.commander { background-color: #d9534f; color: var(--clr-dark); }
 
 .card-footer {
     margin-top: var(--spacing-sm);
@@ -430,6 +756,7 @@ h1, h2, h3 {
     max-width: 1100px;
     margin-top: var(--spacing-md);
     justify-content: center;
+    align-items: stretch; 
 }
 
 .instructor-card {
@@ -439,12 +766,14 @@ h1, h2, h3 {
     border-radius: 12px;
     box-shadow: 0 8px 20px var(--clr-shadow);
     
-    border: 1px solid rgba(0, 255, 255, 0.2); 
+    border: 1px solid rgba(209, 109, 255, 0.2); 
     display: flex;
     flex-direction: column; 
     align-items: center;
     text-align: center;
     transition: transform 0.3s ease;
+    
+    min-height: 500px; 
 }
 
 .instructor-card:hover {
@@ -464,9 +793,7 @@ h1, h2, h3 {
 }
 
 .instructor-image-wrapper:hover {
-    transform: scale(1.05);
-    
-    box-shadow: 0 0 25px var(--clr-secondary), 0 0 40px rgba(0, 255, 255, 0.6);
+    box-shadow: 0 0 25px var(--clr-secondary), 0 0 40px rgba(209, 109, 255, 0.6);
 }
 
 .instructor-avatar {
@@ -478,6 +805,10 @@ h1, h2, h3 {
 
 .instructor-details {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+    width: 100%; 
 }
 
 .instructor-details h3 {
@@ -496,14 +827,15 @@ h1, h2, h3 {
 .instructor-tags {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    overflow-x: auto; 
+    padding-bottom: 5px; 
     margin-bottom: var(--spacing-sm);
 }
 
 .instructor-tags span {
     display: inline-block;
     
-    background-color: rgba(255, 153, 0, 0.2);
+    background-color: rgba(255, 215, 0, 0.2);
     color: var(--clr-secondary);
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
@@ -511,6 +843,7 @@ h1, h2, h3 {
     margin: 0.2rem;
     font-family: var(--font-heading);
     white-space: nowrap; 
+    flex-shrink: 0;
 }
 
 .instructor-details p {
@@ -518,6 +851,7 @@ h1, h2, h3 {
     font-size: 0.95rem;
     line-height: 1.6;
     min-height: 80px; 
+    flex-grow: 1;
 }
 
 .instructor-actions {
@@ -525,6 +859,8 @@ h1, h2, h3 {
     display: flex;
     justify-content: center;
     gap: var(--spacing-sm);
+    margin-top: auto; 
+    padding-top: var(--spacing-sm);
 }
 
 
@@ -655,7 +991,7 @@ h1, h2, h3 {
 .footer-copyright {
     text-align: center;
     
-    border-top: 1px solid rgba(0, 255, 255, 0.1);
+    border-top: 1px solid rgba(209, 109, 255, 0.1); 
     padding-top: var(--spacing-sm);
     margin-top: var(--spacing-sm);
 }
@@ -664,15 +1000,26 @@ h1, h2, h3 {
     font-size: 1.5rem;
     margin-right: var(--spacing-sm);
     margin-left: 0;
-    color: var(--clr-text);
+    color: var(--clr-text); 
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-links a:hover {
-    color: var(--clr-primary);
     transform: scale(1.2) translateY(-2px);
+    color: var(--clr-primary); 
 }
 
+.social-links a:hover .fa-github {
+    color: #181717; 
+}
+
+.social-links a:hover .fa-linkedin { 
+    color: #0A66C2; 
+}
+
+.social-links a:hover .fa-twitter {
+    color: #1A1D20; 
+}
 /* 8. Responsiveness (Media Queries) */
 
 
@@ -689,14 +1036,32 @@ h1, h2, h3 {
 
     .instructor-card {
         flex: 1 1 100%;
+        min-height: auto; 
     }
-    
+
     .instructor-details p {
         min-height: 0; 
+        flex-grow: 0;
     }
 
     .instructor-actions {
         justify-content: center;
+    }
+}
+
+@media (max-width: 900px) {
+    
+    .card-row {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+    
+    .promo-card,
+    .coding-promo-card {
+        flex: 1 1 100%; 
+        max-width: 500px; 
+        width: 90%; 
     }
 }
 
@@ -746,68 +1111,35 @@ h1, h2, h3 {
     .menu-toggle:checked + .hamburger .bar:nth-child(3) {
         transform: translateY(-11px) rotate(-45deg);
     }
+}
 
-    .hero-content h1 {
-        font-size: clamp(2rem, 10vw, 3.5rem);
-    }
-
+@media (max-width: 576px) {
     .course-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .instructor-image-wrapper {
-        width: 120px;
-        height: 120px;
+        grid-template-columns: 1fr; 
     }
     
-    .instructor-details h3 {
-        font-size: 1.4rem;
-    }
-    
-    .instructor-details p {
-        font-size: 0.9rem;
-    }
-
-    .instructor-actions {
-        flex-direction: column;
-        gap: var(--spacing-xs);
-    }
-
     .footer-content {
-        flex-direction: column;
+        flex-direction: column; 
+        align-items: center;
         text-align: center;
     }
     
     .footer-col {
-        flex: 1 1 100%;
-        margin-bottom: var(--spacing-md);
-    }
-
-    .footer-col h4 {
-        margin-top: var(--spacing-sm);
+        flex: 1 1 100%; 
     }
     
-    .footer-col ul {
-        padding: 0;
+    .nav-container .btn-primary {
+        display: none; 
     }
     
-    .footer-col ul li {
-        text-align: center;
-    }
-
-    .footer-about {
-        order: -1; 
-    }
-
-    .footer-about .logo {
-        justify-content: center;
-    }
-
-    .social-links {
-        margin-top: var(--spacing-sm);
+    .promo-card {
+        padding: var(--spacing-sm);
     }
     
-    .footer-copyright p {
-        margin-bottom: 0;
+    .coding-promo-card {
+        max-width: 90%;
+    }
+    .code-content {
+        font-size: 0.85rem;
     }
 }
